@@ -9,19 +9,22 @@
 </head>
 
 <body>
-	<div class="container">
+	<section> 
+		<a href="highscores.html">View Highscores</a>
+		<!-- timer defaulted to 0 in the top right -->	
+	</section>
+	
+	
+	<main id="content" class="container">
 		<h1>Coding Quiz Challenge</h1>
-			<p>Test your knowledge of JavaScript by taking this quiz. Click on your answer out of the choices,
+			<p>Test your knowledge of coding by taking this quiz. Click on your answer out of the choices,
 				if you guess wrong the time will decrease faster. See how many answers you can get right 
 				in the fastest time possible. Click Start to begin the quiz.
 			</p>
-			<div class="quiz-instructions">
-				<button class="start-button">Start</button>
-			</div>
-			<div class="quiz-slides">
-				<button class="answer-selected"></button>
-			</div>
-	</div>
+		<button id="start-button">Start Quiz</button>
+		<div id="choices"></div>
+	</main>
+
 	<script src="main.js"></script>
 </body>
 
