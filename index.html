@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- header -->
 <head>
 	<title>Code Quiz</title>
 	<meta charset="utf-8">
@@ -8,13 +9,14 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 
+<!-- body -->
 <body>
 	<section> 
 		<a href="highscores.html">View Highscores</a>
-		<!-- timer defaulted to 0 in the top right -->	
+		<h2 id="countdown"></h2>
 	</section>
 	
-	
+<!-- main content -->
 	<main id="content" class="container">
 		<h1>Coding Quiz Challenge</h1>
 			<p>Test your knowledge of coding by taking this quiz. Click on your answer out of the choices,
@@ -22,7 +24,7 @@
 				in the fastest time possible. Click Start to begin the quiz.
 			</p>
 		<button id="start-button">Start Quiz</button>
-		<div id="choices"></div>
+		<div id="choices"></div>	
 	</main>
 
 	<script src="main.js"></script>
