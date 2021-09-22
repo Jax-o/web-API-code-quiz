@@ -2,8 +2,12 @@
 var startButton = document.querySelector("#start-button");
 var mainContent = document.querySelector("#content");
 var timerEl = document.getElementById('countdown');
-var choices = document.querySelector('#choices')
-var selectQuestion = 0;
+var questions = document.querySelector('#questions');
+var choices = document.querySelector('#choices');
+var instructions = document.querySelector('#instructions');
+var finished = document.querySelector('#finihsed');
+var done = document.querySelector('#done');
+var currentQuestion = 0;
 var selectAnswer = 0
 
 
@@ -47,8 +51,7 @@ startButton.addEventListener("click", function () {
 	} 
 );
 
-// answerChoices.addEventListener('click', function () {
-// 	answerVerify()
+
 // }
 
 // functions 
@@ -67,19 +70,47 @@ function startGame() {
 			}
 		}, 1000);
 	}
-	
+	instructions.style.display = 'none'
 	countdown();
 	quizSelection();
 }
 
 function quizSelection() {
-	mainContent.style.display = 'block';
-	mainContent.innerHTML = quizQuestions[selectQuestion].questionTitle + quizQuestions[selectAnswer].answers
-
-	
+	mainContent.style.display = 'block'
+	questions.innerHTML = quizQuestions[currentQuestion].questionTitle;
+	choices.innerHTML = '';
+	for (var i = 0; i < quizQuestions[currentQuestion].answers.length; i++) {
+		console.log('each answer', quizQuestions[currentQuestion].answers[i]);
+	document.createElement("button")
+	answerBtn = document.createElement("button");
+	answerBtn.textContent = quizQuestions[currentQuestion].answers[i];
+	answerBtn.addEventListener('click', function (event) {
+	answerBtn.style.display = 'list-item'
+	checkAnswers(event.target.innerText);	
+	})
+	choices.appendChild(answerBtn);
+	}
+}
+function checkAnswers(answerClicked) {
+	if (quizQuestions[currentQuestion].answer === answerClicked) {
+		alert('Correct')
+	} else {
+		alert('incorrect')
+	}
+	currentQuestion++
+	quizSelection();
 }
 
-// function for quizQuestions
-// for loop for list items, add event listeners checking the right answer function to answers choices 
-// display the question
-// function for checking the right answer
+	
+function allDone() {
+	finished.style.display = 'none'
+	done.innerHTML = ''
+	document.createElement("button")
+	doneBtn = document.createElement("button");
+	doneBtn.textContent = "All Done"
+	doneBtn.style.display = 'list-item'
+	done.appendChild(doneBtn);
+	doneBtn.addEventListener("click", function () {
+	allDone();
+		
+})}	
